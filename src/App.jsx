@@ -1,16 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Signup from "./pages/signup/index";
 import Signin from "./pages/signin";
 import Dashboard from "./pages/organization/dashboard";
 import UserListingPage from "./pages/organization/user/listing";
+import AddUserPage from "./pages/organization/user/add";
 
 // JS + XML = React
 function App() {
-  const a = 1;
-  const b = 2;
-  const c = 3;
-
   return (
     <Routes>
       <Route path="*" element={<div>404 Not Found</div>} />
@@ -22,6 +18,7 @@ function App() {
 
         <Route path="users">
           <Route index element={<UserListingPage />} />
+          <Route path="add" element={<AddUserPage />} />
           <Route path=":id" element={<UserListingPage />} />
         </Route>
       </Route>
