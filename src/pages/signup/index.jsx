@@ -1,17 +1,24 @@
 import { Fragment, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import supabase from "../../utils/supabase";
 
 function Signup() {
+
+
+
   const emailRef = useRef();
   const pwdRef = useRef();
   const navigate = useNavigate();
 
-  function signupClickHandler() {
+  async function signupClickHandler() {
     const password = pwdRef.current.value;
     const email = emailRef.current.value;
 
+    const response = await supabase.auth.signUp({ email, password })
+    console.log(response, "===response")
+
     alert("Signup Successfully");
-    navigate("/signin");
+    // navigate("/signin");
   }
 
   return (

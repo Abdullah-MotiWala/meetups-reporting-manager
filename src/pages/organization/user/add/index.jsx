@@ -4,7 +4,8 @@ import "./style.css";
 const AddUserPage = () => {
   const nameRef = useRef();
   const emailRef = useRef();
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(false)
+
   let textValue = "";
 
   function usernameChangeHandler(e) {
@@ -21,6 +22,7 @@ const AddUserPage = () => {
         onChange={usernameChangeHandler}
         placeholder="Enter Username"
       />
+      {/* Conditional Rendering */}
       {error && <p className="error">Username cannot have space</p>}
       <input type="email" placeholder="Enter User email" />
     </>
